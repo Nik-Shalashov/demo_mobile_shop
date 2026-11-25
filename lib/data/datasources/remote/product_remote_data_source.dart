@@ -12,9 +12,6 @@ abstract class ProductRemoteDataSource {
 
   @GET('/products/{id}')
   Future<ProductModel> getProduct(@Path('id') int id);
-
-  @GET('/products/categories')
-  Future<List<String>> getCategories();
 }
 
 class ProductRemoteDataSourceImpl with DioUnwrapper implements ProductRemoteDataSource {
@@ -29,8 +26,4 @@ class ProductRemoteDataSourceImpl with DioUnwrapper implements ProductRemoteData
   @override
   Future<ProductModel> getProduct(int id) =>
       _service.getProduct(id).onError(unwrapDioException);
-
-  @override
-  Future<List<String>> getCategories() =>
-      _service.getCategories().onError(unwrapDioException);
 }
