@@ -10,10 +10,7 @@ class RatingModel {
 
   final int count;
 
-  const RatingModel({
-    required this.rate,
-    required this.count,
-  });
+  const RatingModel({required this.rate, required this.count});
 
   factory RatingModel.fromJson(Map<String, dynamic> json) =>
       _$RatingModelFromJson(json);
@@ -21,6 +18,9 @@ class RatingModel {
   Map<String, dynamic> toJson() => _$RatingModelToJson(this);
 
   Rating toEntity() => Rating(rate: rate, count: count);
+
+  factory RatingModel.fromEntity(Rating rating) =>
+      RatingModel(rate: rating.rate, count: rating.count);
 
   @override
   bool operator ==(Object other) =>

@@ -37,14 +37,24 @@ class ProductModel {
   Map<String, dynamic> toJson() => _$ProductModelToJson(this);
 
   Product toEntity() => Product(
-        id: id,
-        title: title,
-        price: price,
-        description: description,
-        category: category,
-        image: image,
-        rating: rating.toEntity(),
-      );
+    id: id,
+    title: title,
+    price: price,
+    description: description,
+    category: category,
+    image: image,
+    rating: rating.toEntity(),
+  );
+
+  factory ProductModel.fromEntity(Product product) => ProductModel(
+    id: product.id,
+    title: product.title,
+    price: product.price,
+    description: product.description,
+    category: product.category,
+    image: product.image,
+    rating: RatingModel.fromEntity(product.rating),
+  );
 
   @override
   bool operator ==(Object other) =>
