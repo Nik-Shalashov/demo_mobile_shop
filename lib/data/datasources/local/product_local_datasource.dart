@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:demo_mobile_shop/data/datasources/models/product_model.dart';
-import 'package:hive/hive.dart';
+import 'package:hive_ce/hive.dart';
 
 abstract class ProductLocalDataSource {
   Future<void> cacheProducts(List<ProductModel> products);

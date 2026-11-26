@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:demo_mobile_shop/data/datasources/models/cart_item_model.dart';
 import 'package:demo_mobile_shop/domain/entities/cart.dart';
-import 'package:hive/hive.dart';
+import 'package:hive_ce/hive.dart';
 
 abstract class CartLocalDataSource {
   Future<Cart> getCart();
